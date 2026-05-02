@@ -15,7 +15,7 @@ const duplicatedSkills = [...allSkills, ...allSkills, ...allSkills]; // triple t
 
 export function TechStackSection() {
   return (
-    <section className="py-16 overflow-hidden flex flex-col items-center gap-8" id="tech-stack">
+    <section className="pt-4 pb-16 bg-white overflow-hidden flex flex-col items-center gap-8" id="tech-stack">
       {/* Indicator Block - Centered above */}
       <div className="flex items-center gap-2 font-bold text-lg md:text-xl uppercase tracking-widest bg-white border-2 border-black rounded-lg px-6 py-2 shadow-[4px_4px_0_0_#000] rotate-[-1deg] hover:rotate-0 transition-transform">
         <Sparkles className="w-5 h-5 text-black" />

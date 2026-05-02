@@ -211,7 +211,7 @@ export function HeroSection() {
   };
 
   return (
-    <section className="py-24 bg-white relative overflow-hidden" id="about">
+    <section className="pt-24 pb-12 bg-white relative overflow-hidden" id="about">
       <style>{bgStyles}</style>
 
       {/* Backgrounds */}
