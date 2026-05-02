@@ -252,25 +252,25 @@ export function HeroSection() {
             <div className="inline-flex items-center gap-3 border-2 border-black bg-white px-4 py-1.5 mb-6 shadow-[3px_3px_0_0_#000] rotate-[-1deg] hover:rotate-0 transition-transform">
               <span className="font-bold text-sm md:text-base uppercase tracking-widest">An Nguyen</span>
               <span className="w-1.5 h-1.5 bg-black rounded-full"></span>
-              <span className="font-mono text-xs md:text-sm font-semibold uppercase tracking-wider text-gray-700">PRODUCT BUILDER / CONTENT CREATOR</span>
+              <span className="font-mono text-xs md:text-sm font-semibold uppercase tracking-wider text-gray-700">STRATEGIC BUSINESS DEVELOPMENT / TECH SALES</span>
             </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight leading-tight">
-              Building the <span
+              Engineering the <span
                 onMouseEnter={() => setBgState('how')}
                 onMouseLeave={() => setBgState('none')}
                 className="cursor-crosshair border-b-4 border-dashed border-gray-300 hover:border-black transition-colors"
-              >"How."</span> <br />
-              Obsessing over the <span
+              >Solution.</span> <br />
+              Selling the <span
                 onMouseEnter={() => setBgState('why')}
                 onMouseLeave={() => setBgState('none')}
                 className="cursor-crosshair border-b-4 border-dashed border-gray-300 hover:border-black transition-colors"
-              >"Why."</span>
+              >Impact.</span>
             </h1>
             <p className="text-lg md:text-xl font-medium text-brand-text mb-4 leading-relaxed">
-              Most engineers only care about how a system works. I am obsessed with why it matters to the user.
+              The best code in the world does not matter if the market does not understand its business value.
             </p>
             <p className="text-base text-brand-subtext mb-8 leading-relaxed">
-              For the past two years, I have operated as a Software Engineer with a Product Manager's mindset, translating deep technical complexity into products that actually scale. I design and build systems ranging from autonomous AI pipelines to machine learning models. Beyond engineering, I solve high stakes business and marketing cases for global brands like Pizza Hut and Unilever. This is where technical precision meets business impact.
+              I started my career in the technical trenches, building scalable software and AI workflows for organizations like ANZ Plus and P&G. However, my most impactful commercial wins, such as deploying an enterprise AI chatbot that eliminated critical data bottlenecks at ANZ Plus, taught me that the real challenge is rarely the technology. It is business alignment. Now, I operate at the intersection of engineering and commercial value. I help clients uncover their infrastructure bottlenecks and architecting technical solutions that deliver scalable ROI.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center gap-6 w-full sm:w-auto mb-8">
