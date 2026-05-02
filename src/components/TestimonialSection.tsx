@@ -4,25 +4,25 @@ import { Code, Compass, FileText } from 'lucide-react';
 
 const principles = [
   {
-    category: "The Engineering Perspective",
-    title: "Product-Minded Engineering",
-    body: "Code should not exist in a vacuum. I build with the business goals and the user journey in mind. This means making technical trade-offs that favor long-term scalability without sacrificing immediate product momentum.",
+    category: "The Solutions Perspective",
+    title: "Commercial-Minded Architecture",
+    body: "Technology should not be sold in a vacuum. I approach every client with an engineer's understanding of complex systems and a seller's focus on revenue. This means scoping technical solutions that directly drive scalable business growth and maximize a client's Return on Investment.",
     icon: Code,
     iconBg: "bg-blue-100",
     iconColor: "text-blue-600"
   },
   {
-    category: "The Product Perspective",
+    category: "The Client Perspective",
     title: "The \"Why\" Before the \"What\"",
-    body: "Every feature should solve a actual problem. I focus on ruthlessly prioritizing the MVP to find product-market fit early. If we cannot measure the impact of a feature, we probably should not be building it yet.",
+    body: "Enterprise buyers do not buy code; they buy solutions to critical pain points. I focus on ruthlessly uncovering the exact business bottleneck before ever pitching a product. If we cannot clearly measure and prove the commercial impact of a Proof of Concept (PoC), we should not be proposing it.",
     icon: Compass,
     iconBg: "bg-purple-100",
     iconColor: "text-purple-600"
   },
   {
-    category: "The Execution Perspective",
+    category: "The Alignment Perspective",
     title: "Radical Clarity",
-    body: "Ambiguity is the biggest bottleneck for any team. Whether I am writing a PRD or a technical spec, my goal is to ensure every stakeholder and engineer knows exactly what we are building and why it matters.",
+    body: "Miscommunication is the biggest deal-breaker in complex B2B sales. Whether I am navigating technical pushback from engineers or presenting a business case to C-suite executives, my goal is to act as the ultimate translator. I ensure every stakeholder understands exactly what we are delivering and why it matters to their bottom line.",
     icon: FileText,
     iconBg: "bg-green-100",
     iconColor: "text-green-600"
@@ -36,7 +36,7 @@ export function TestimonialSection() {
         <div className="mb-16">
           <h2 className="text-3xl md:text-5xl font-bold mb-6">Operating Principles</h2>
           <p className="text-brand-subtext max-w-3xl text-lg leading-relaxed">
-            I believe great products aren't just about clean code or smart features. They are about how you bridge the gap between the two. These are the core rules I follow when I am building and leading.
+            I believe successful enterprise partnerships aren't just about pitching smart features. They are about how you translate those features into undeniable business value. These are the core rules I follow when architecting solutions and driving revenue.
           </p>
         </div>
 
