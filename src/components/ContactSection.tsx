@@ -9,9 +9,9 @@ export function ContactSection() {
         <div className="bg-[#fdfaf5] text-black border-4 border-black rounded-2xl p-8 md:p-16 shadow-[8px_8px_0_0_#666] flex flex-col md:flex-row items-center justify-between gap-12">
           
           <div className="max-w-xl">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">Let's build something great together.</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">Let's drive scalable growth together.</h2>
             <p className="text-xl font-medium text-gray-700 mb-8">
-              I'm currently open to new opportunities in Product Management. Whether you have a question or just want to say hi, I'll try my best to get back to you!
+              I am currently open to new roles in Strategic Business Development and Technical Sales. Whether you are looking for someone to bridge the gap between engineering and revenue, or just want to connect, my inbox is always open.
             </p>
             
             <a 
