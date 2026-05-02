@@ -4,7 +4,7 @@ import 'react-pdf/dist/Page/AnnotationLayer.css';
 import 'react-pdf/dist/Page/TextLayer.css';
 import { Container, Tag, Modal } from './ui';
 import { PixelComputer, PixelHammer, PixelCheck, PixelGlobe, PixelCamera } from './PixelIcons';
-import { FileText, ChevronLeft, ChevronRight, Download, ExternalLink, Loader, BarChart, ShoppingCart, Bot, MonitorSmartphone, ShieldCheck, Gavel, Sparkles } from 'lucide-react';
+import { FileText, ChevronLeft, ChevronRight, Download, ExternalLink, Loader, BarChart, ShoppingCart, Bot, MonitorSmartphone, ShieldCheck, Gavel, Sparkles, ZoomIn, ZoomOut } from 'lucide-react';
 import { fetchPdf } from '../utils/fetchPdf';
 
 // Configure pdf.js worker
@@ -85,12 +85,7 @@ const PdfRenderer = ({ pdfUrl, width }: { pdfUrl: string; width: number }) => {
   const [numPages, setNumPages] = useState(0);
   const [pageNumber, setPageNumber] = useState(1);
   const [renderError, setRenderError] = useState(false);
-
-  // Track last rendered page height so the container never collapses during page switch.
-  // When react-pdf tears down the old canvas and creates a new one, there's a brief
-  // moment with zero content → without min-height the frame collapses → visual glitch.
-  const [pageHeight, setPageHeight] = useState(0);
-  const pageWrapperRef = useRef<HTMLDivElement>(null);
+  const [pdfScale, setPdfScale] = useState(1);
 
   // Get the STABLE fileObj from the module-level cache.
   // Same URL always returns the same object reference → react-pdf never re-loads.
@@ -120,8 +115,7 @@ const PdfRenderer = ({ pdfUrl, width }: { pdfUrl: string; width: number }) => {
 
   return (
     <div className="flex flex-col gap-4">
-      {/* Wrapper holds min-height of the last rendered page to prevent collapse */}
-      <div ref={pageWrapperRef} style={{ minHeight: pageHeight > 0 ? pageHeight : undefined }}>
+      <div className="flex justify-center min-w-min">
         <Document
           file={fileObjRef.current}
           onLoadSuccess={({ numPages: n }) => setNumPages(n)}
@@ -136,16 +130,12 @@ const PdfRenderer = ({ pdfUrl, width }: { pdfUrl: string; width: number }) => {
           <Page
             pageNumber={pageNumber}
             width={width}
+            scale={pdfScale}
             renderAnnotationLayer={false}
             renderTextLayer={false}
-            onRenderSuccess={() => {
-              // Capture the actual rendered height after the canvas is drawn
-              if (pageWrapperRef.current) {
-                setPageHeight(pageWrapperRef.current.scrollHeight);
-              }
-            }}
+            onRenderSuccess={() => {}}
             loading={
-              <div className="flex items-center justify-center" style={{ minHeight: pageHeight > 0 ? pageHeight : 200 }}>
+              <div className="flex items-center justify-center h-[60vh]">
                 <Loader className="w-6 h-6 animate-spin text-gray-400" />
               </div>
             }
@@ -158,8 +148,10 @@ const PdfRenderer = ({ pdfUrl, width }: { pdfUrl: string; width: number }) => {
         </Document>
       </div>
 
-      {numPages > 1 && (
-        <div className="flex items-center justify-center gap-4 bg-[#fdfaf5] border-2 border-black rounded-lg px-4 py-2.5">
+      {/* Controls Bar: Pagination & Zoom */}
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 bg-[#fdfaf5] border-2 border-black rounded-lg px-4 py-2.5 mt-4">
+        {/* Pagination (visually hidden if 1 page to maintain flex layout) */}
+        <div className="flex items-center gap-4" style={{ visibility: numPages > 1 ? 'visible' : 'hidden' }}>
           <button
             type="button"
             onClick={() => setPageNumber(p => Math.max(1, p - 1))}
@@ -169,7 +161,7 @@ const PdfRenderer = ({ pdfUrl, width }: { pdfUrl: string; width: number }) => {
             <ChevronLeft className="w-4 h-4" strokeWidth={3} />
           </button>
           <span className="font-mono text-sm font-bold">
-            Page {pageNumber} / {numPages}
+            Page {pageNumber} / {Math.max(1, numPages)}
           </span>
           <button
             type="button"
@@ -180,7 +172,28 @@ const PdfRenderer = ({ pdfUrl, width }: { pdfUrl: string; width: number }) => {
             <ChevronRight className="w-4 h-4" strokeWidth={3} />
           </button>
         </div>
-      )}
+
+        {/* Zoom Controls */}
+        <div className="flex items-center gap-4">
+          <button
+            type="button"
+            onClick={() => setPdfScale(s => Math.max(0.5, s - 0.25))}
+            className="p-1.5 border-2 border-black rounded bg-white hover:bg-black hover:text-white transition-colors"
+            title="Zoom Out"
+          >
+            <ZoomOut className="w-4 h-4" strokeWidth={3} />
+          </button>
+          <span className="font-mono text-sm font-bold min-w-[4ch] text-center">{Math.round(pdfScale * 100)}%</span>
+          <button
+            type="button"
+            onClick={() => setPdfScale(s => Math.min(3, s + 0.25))}
+            className="p-1.5 border-2 border-black rounded bg-white hover:bg-black hover:text-white transition-colors"
+            title="Zoom In"
+          >
+            <ZoomIn className="w-4 h-4" strokeWidth={3} />
+          </button>
+        </div>
+      </div>
     </div>
   );
 };
@@ -368,8 +381,8 @@ const PdfViewerModal = ({ isOpen, onClose, projectSlug, title }: {
 
             {/* PDF viewer area — ref is HERE so clientWidth already excludes scrollbar */}
             <div
+              className="w-full border-4 border-black rounded-xl overflow-auto shadow-[4px_4px_0_0_#000] bg-white h-[60vh] min-h-[400px] relative"
               ref={containerRef}
-              className="w-full border-4 border-black rounded-xl overflow-y-auto overflow-x-hidden shadow-[4px_4px_0_0_#000] bg-white max-h-[78vh] relative"
             >
               {fetchError && !showUrl ? (
                 <div className="flex flex-col items-center justify-center gap-4 py-20 text-center">

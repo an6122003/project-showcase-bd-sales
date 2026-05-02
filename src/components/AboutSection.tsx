@@ -55,95 +55,114 @@ export function AboutSection() {
           </div>
 
           {/* Right Column: Timeline */}
-          <div className="w-full lg:w-7/12 flex flex-col gap-6">
-            <h3 className="text-2xl font-bold mb-2">Experience & Education</h3>
+          <div className="w-full lg:w-7/12 flex flex-col gap-10">
             
-            <div className="relative border-l-4 border-black pl-8 ml-4 mt-2 space-y-10">
-              
-              <div className="relative">
-                <div className="absolute w-5 h-5 bg-black rounded-full -left-[42px] top-1 border-4 border-[#fdfaf5]"></div>
-                <div className="bg-white p-6 border-2 border-black rounded-xl shadow-[4px_4px_0_0_#000] transition-all hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[6px_6px_0_0_#000]">
-                  <div className="flex items-center gap-2 text-brand-subtext font-bold text-xs uppercase tracking-wide mb-2">
-                    <Briefcase className="w-4 h-4" /> May 2024 - Present
+            {/* Work Experience */}
+            <div>
+              <h3 className="text-2xl font-bold mb-4 flex items-center gap-2">
+                <Briefcase className="w-6 h-6" /> Work Experience
+              </h3>
+              <div className="relative border-l-4 border-black pl-8 ml-4 space-y-8">
+                <div className="relative">
+                  <div className="absolute w-5 h-5 bg-black rounded-full -left-[42px] top-1 border-4 border-[#fdfaf5]"></div>
+                  <div className="bg-white p-6 border-2 border-black rounded-xl shadow-[4px_4px_0_0_#000] transition-all hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[6px_6px_0_0_#000]">
+                    <div className="flex items-center gap-2 text-brand-subtext font-bold text-xs uppercase tracking-wide mb-2">
+                      May 2024 - Present
+                    </div>
+                    <h4 className="text-xl font-bold text-black mb-1">Back-end & Platform Engineer</h4>
+                    <p className="text-brand-subtext font-bold mb-3">HCLTech x ANZx (ANZ Plus)</p>
+                    <p className="text-sm text-gray-700 leading-relaxed md:line-clamp-4">
+                      Led the end-to-end lifecycle of a Multi-Agent Analytics Chatbot automating SQL generation and chart visualization. Delivered secure Joint-Account workflows and optimized Google Cloud usage, eliminating manual financial data processing.
+                    </p>
                   </div>
-                  <h4 className="text-xl font-bold text-black mb-1">Back-end & Platform Engineer</h4>
-                  <p className="text-brand-subtext font-bold mb-3">HCLTech x ANZx (ANZ Plus)</p>
-                  <p className="text-sm text-gray-700 leading-relaxed md:line-clamp-4">
-                    Led the end-to-end lifecycle of a Multi-Agent Analytics Chatbot automating SQL generation and chart visualization. Delivered secure Joint-Account workflows and optimized Google Cloud usage, eliminating manual financial data processing.
-                  </p>
+                </div>
+
+                <div className="relative">
+                  <div className="absolute w-5 h-5 bg-white border-4 border-black rounded-full -left-[42px] top-1"></div>
+                  <div className="bg-white p-6 border-2 border-black rounded-xl shadow-[4px_4px_0_0_#000] transition-all hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[6px_6px_0_0_#000]">
+                    <div className="flex items-center gap-2 text-brand-subtext font-bold text-xs uppercase tracking-wide mb-2">
+                      Sep 2023 - Dec 2023
+                    </div>
+                    <h4 className="text-xl font-bold text-black mb-1">IT Intern Co-op / Management</h4>
+                    <p className="text-brand-subtext font-bold mb-3">Procter & Gamble Vietnam</p>
+                    <p className="text-sm text-gray-700 leading-relaxed">
+                      Led global SU/Pallet tracking initiative for Grooming BU, aligning up to 20 cross-functional stakeholders.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="relative">
+                  <div className="absolute w-5 h-5 bg-white border-4 border-black rounded-full -left-[42px] top-1"></div>
+                  <div className="bg-white p-6 border-2 border-black rounded-xl shadow-[4px_4px_0_0_#000] transition-all hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[6px_6px_0_0_#000]">
+                    <div className="flex items-center gap-2 text-brand-subtext font-bold text-xs uppercase tracking-wide mb-2">
+                      Oct 2021 - Nov 2022
+                    </div>
+                    <h4 className="text-xl font-bold text-black mb-1">Marketing Intern</h4>
+                    <p className="text-brand-subtext font-bold mb-3">Vietnam Australia International School</p>
+                    <p className="text-sm text-gray-700 leading-relaxed">
+                      Managed marketing copywriting and content production. Founded and grew social communities to 30,000+ followers, assisting the PR Manager in media creation and event organization to promote School's values.
+                    </p>
+                  </div>
                 </div>
               </div>
+            </div>
 
-              <div className="relative">
-                <div className="absolute w-5 h-5 bg-white border-4 border-black rounded-full -left-[42px] top-1"></div>
-                <div className="bg-white p-6 border-2 border-black rounded-xl shadow-[4px_4px_0_0_#000] transition-all hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[6px_6px_0_0_#000]">
-                  <div className="flex items-center gap-2 text-brand-subtext font-bold text-xs uppercase tracking-wide mb-2">
-                    <Briefcase className="w-4 h-4" /> Sep 2023 - Dec 2023
+            {/* Extracurricular */}
+            <div>
+              <h3 className="text-2xl font-bold mb-4 flex items-center gap-2">
+                <Compass className="w-6 h-6" /> Extracurricular
+              </h3>
+              <div className="relative border-l-4 border-black pl-8 ml-4 space-y-8">
+                <div className="relative">
+                  <div className="absolute w-5 h-5 bg-white border-4 border-black rounded-full -left-[42px] top-1"></div>
+                  <div className="bg-white p-6 border-2 border-black rounded-xl shadow-[4px_4px_0_0_#000] transition-all hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[6px_6px_0_0_#000]">
+                    <div className="flex items-center gap-2 text-brand-subtext font-bold text-xs uppercase tracking-wide mb-2">
+                      Jul 2022 - Jan 2023
+                    </div>
+                    <h4 className="text-xl font-bold text-black mb-1">Project Leader</h4>
+                    <p className="text-brand-subtext font-bold mb-3">Intelligent Investment Competition</p>
+                    <p className="text-sm text-gray-700 leading-relaxed">
+                      Directed a 6-month action plan for a nationwide virtual stock trading competition with 600+ participants. Managed 4 cross-functional teams (38 members) spanning Marketing, Sponsorship, and Programming. Secured complex stakeholder partnerships and major funding.
+                    </p>
                   </div>
-                  <h4 className="text-xl font-bold text-black mb-1">IT Intern Co-op / Management</h4>
-                  <p className="text-brand-subtext font-bold mb-3">Procter & Gamble Vietnam</p>
-                  <p className="text-sm text-gray-700 leading-relaxed">
-                    Led global SU/Pallet tracking initiative for Grooming BU, aligning up to 20 cross-functional stakeholders.
-                  </p>
+                </div>
+
+                <div className="relative">
+                  <div className="absolute w-5 h-5 bg-white border-4 border-black rounded-full -left-[42px] top-1"></div>
+                  <div className="bg-white p-6 border-2 border-black rounded-xl shadow-[4px_4px_0_0_#000] transition-all hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[6px_6px_0_0_#000]">
+                    <div className="flex items-center gap-2 text-brand-subtext font-bold text-xs uppercase tracking-wide mb-2">
+                      Jun 2022 - May 2023
+                    </div>
+                    <h4 className="text-xl font-bold text-black mb-1">External Vice President</h4>
+                    <p className="text-brand-subtext font-bold mb-3">RMIT Vietnam Finance Club</p>
+                    <p className="text-sm text-gray-700 leading-relaxed">
+                      Operated as an Executive Board member, managing 140+ members across 4 departments. Efficiently supervised External Relations and Marketing teams, growing social communities to 29k+ followers and driving successful medium-scale events through cross-club collaborations.
+                    </p>
+                  </div>
                 </div>
               </div>
+            </div>
 
-              <div className="relative">
-                <div className="absolute w-5 h-5 bg-white border-4 border-black rounded-full -left-[42px] top-1"></div>
-                <div className="bg-white p-6 border-2 border-black rounded-xl shadow-[4px_4px_0_0_#000] transition-all hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[6px_6px_0_0_#000]">
-                  <div className="flex items-center gap-2 text-brand-subtext font-bold text-xs uppercase tracking-wide mb-2">
-                    <Briefcase className="w-4 h-4" /> Jul 2022 - Jan 2023
+            {/* Education */}
+            <div>
+              <h3 className="text-2xl font-bold mb-4 flex items-center gap-2">
+                <GraduationCap className="w-6 h-6" /> Education
+              </h3>
+              <div className="relative border-l-4 border-black pl-8 ml-4 space-y-8">
+                <div className="relative">
+                  <div className="absolute w-5 h-5 bg-white border-4 border-black rounded-full -left-[42px] top-1"></div>
+                  <div className="bg-blue-50 p-6 border-2 border-black rounded-xl shadow-[4px_4px_0_0_#000] transition-all hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[6px_6px_0_0_#000]">
+                    <div className="flex items-center gap-2 text-brand-subtext font-bold text-xs uppercase tracking-wide mb-2">
+                      Graduation
+                    </div>
+                    <h4 className="text-xl font-bold text-black mb-1">Bachelor of Info Technology</h4>
+                    <p className="text-brand-subtext font-bold mb-3">RMIT University (GPA: 3.6/4.0)</p>
+                    <p className="text-sm text-gray-700 leading-relaxed">
+                      Scholar's List.
+                    </p>
                   </div>
-                  <h4 className="text-xl font-bold text-black mb-1">Project Leader</h4>
-                  <p className="text-brand-subtext font-bold mb-3">Intelligent Investment Competition</p>
-                  <p className="text-sm text-gray-700 leading-relaxed">
-                    Directed a 6-month action plan for a nationwide virtual stock trading competition with 600+ participants. Managed 4 cross-functional teams (38 members) spanning Marketing, Sponsorship, and Programming. Secured complex stakeholder partnerships and major funding.
-                  </p>
                 </div>
               </div>
-
-              <div className="relative">
-                <div className="absolute w-5 h-5 bg-white border-4 border-black rounded-full -left-[42px] top-1"></div>
-                <div className="bg-white p-6 border-2 border-black rounded-xl shadow-[4px_4px_0_0_#000] transition-all hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[6px_6px_0_0_#000]">
-                  <div className="flex items-center gap-2 text-brand-subtext font-bold text-xs uppercase tracking-wide mb-2">
-                    <Briefcase className="w-4 h-4" /> Jun 2022 - May 2023
-                  </div>
-                  <h4 className="text-xl font-bold text-black mb-1">External Vice President</h4>
-                  <p className="text-brand-subtext font-bold mb-3">RMIT Vietnam Finance Club</p>
-                  <p className="text-sm text-gray-700 leading-relaxed">
-                    Operated as an Executive Board member, managing 140+ members across 4 departments. Efficiently supervised External Relations and Marketing teams, growing social communities to 29k+ followers and driving successful medium-scale events through cross-club collaborations.
-                  </p>
-                </div>
-              </div>
-
-              <div className="relative">
-                <div className="absolute w-5 h-5 bg-white border-4 border-black rounded-full -left-[42px] top-1"></div>
-                <div className="bg-white p-6 border-2 border-black rounded-xl shadow-[4px_4px_0_0_#000] transition-all hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[6px_6px_0_0_#000]">
-                  <div className="flex items-center gap-2 text-brand-subtext font-bold text-xs uppercase tracking-wide mb-2">
-                    <Briefcase className="w-4 h-4" /> Oct 2021 - Nov 2022
-                  </div>
-                  <h4 className="text-xl font-bold text-black mb-1">Marketing Intern</h4>
-                  <p className="text-brand-subtext font-bold mb-3">Vietnam Australia International School</p>
-                  <p className="text-sm text-gray-700 leading-relaxed">
-                    Managed marketing copywriting and content production. Founded and grew social communities to 30,000+ followers, assisting the PR Manager in media creation and event organization to promote School's values.
-                  </p>
-                </div>
-              </div>
-
-              <div className="relative">
-                <div className="absolute w-5 h-5 bg-white border-4 border-black rounded-full -left-[42px] top-1"></div>
-                <div className="bg-blue-50 p-6 border-2 border-black rounded-xl shadow-[4px_4px_0_0_#000] transition-all hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[6px_6px_0_0_#000]">
-                  <div className="flex items-center gap-2 text-brand-subtext font-bold text-xs uppercase tracking-wide mb-2">
-                    <GraduationCap className="w-4 h-4" /> Graduation
-                  </div>
-                  <h4 className="text-xl font-bold text-black mb-1">Bachelor of Info Technology</h4>
-                  <p className="text-brand-subtext font-bold mb-3">RMIT University (GPA: 3.6/4.0)</p>
-                  <p className="text-sm text-gray-700 leading-relaxed">
-                    Scholar's List.
-                  </p>
-                </div>
-              </div>
-
             </div>
 
             <div className="flex flex-wrap gap-4 mx-auto lg:mx-0 mt-6 lg:mt-4">

@@ -4,7 +4,7 @@ import 'react-pdf/dist/Page/AnnotationLayer.css';
 import 'react-pdf/dist/Page/TextLayer.css';
 import { PixelAvatar, TikTokIcon } from './PixelIcons';
 import { Button, Container, Modal } from './ui';
-import { Github, Linkedin, Mail, Youtube, Facebook, ArrowRight, Download, ExternalLink, FileText, ChevronLeft, ChevronRight, Loader } from 'lucide-react';
+import { Github, Linkedin, Mail, Youtube, Facebook, ArrowRight, Download, ExternalLink, FileText, ChevronLeft, ChevronRight, Loader, ZoomIn, ZoomOut } from 'lucide-react';
 import { fetchPdf } from '../utils/fetchPdf';
 
 // Reuse the same worker setup
@@ -132,6 +132,7 @@ export function HeroSection() {
   const [numPages, setNumPages] = useState(0);
   const [pageNumber, setPageNumber] = useState(1);
   const [containerWidth, setContainerWidth] = useState(900);
+  const [pdfScale, setPdfScale] = useState(1);
 
   // Stable file object — created once, never recreated (prevents react-pdf loop)
   const fileObjRef = useRef<{ data: ArrayBuffer } | null>(null);
@@ -141,10 +142,6 @@ export function HeroSection() {
 
   // Blob URL for download/open actions
   const blobUrlRef = useRef<string>('');
-
-  // Track rendered page height to prevent frame collapse during page switch
-  const [cvPageHeight, setCvPageHeight] = useState(0);
-  const cvPageWrapperRef = useRef<HTMLDivElement>(null);
 
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -309,21 +306,21 @@ export function HeroSection() {
       {/* CV Modal */}
       <Modal isOpen={isCvOpen} onClose={() => setIsCvOpen(false)} title="Resume">
         <div ref={containerRef} className="flex flex-col gap-4">
-          <div className="w-full border-4 border-black rounded-xl overflow-auto shadow-[4px_4px_0_0_#000] bg-white max-h-[70vh] min-h-[300px]">
+          <div className="w-full border-4 border-black rounded-xl overflow-auto shadow-[4px_4px_0_0_#000] bg-white h-[60vh] min-h-[400px] relative">
             {cvLoading && (
-              <div className="flex flex-col items-center justify-center h-[50vh] gap-3">
+              <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-white z-10">
                 <Loader className="w-8 h-8 animate-spin text-black" />
                 <span className="text-brand-subtext font-mono text-sm font-bold">Loading CV…</span>
               </div>
             )}
             {cvError && (
-              <div className="flex flex-col items-center justify-center h-[40vh] gap-4 text-center p-8">
+              <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 text-center p-8 bg-white z-10">
                 <FileText className="w-12 h-12 text-gray-300" />
                 <p className="text-brand-subtext font-medium">Could not load CV.</p>
               </div>
             )}
             {cvReady && fileObjRef.current && (
-              <div ref={cvPageWrapperRef} style={{ minHeight: cvPageHeight > 0 ? cvPageHeight : undefined }}>
+              <div className="flex justify-center min-w-min">
                 <Document
                   file={fileObjRef.current}
                   onLoadSuccess={({ numPages: n }) => setNumPages(n)}
@@ -338,15 +335,12 @@ export function HeroSection() {
                   <Page
                     pageNumber={pageNumber}
                     width={containerWidth}
+                    scale={pdfScale}
                     renderAnnotationLayer={false}
                     renderTextLayer={false}
-                    onRenderSuccess={() => {
-                      if (cvPageWrapperRef.current) {
-                        setCvPageHeight(cvPageWrapperRef.current.scrollHeight);
-                      }
-                    }}
+                    onRenderSuccess={() => {}}
                     loading={
-                      <div className="flex items-center justify-center" style={{ minHeight: cvPageHeight > 0 ? cvPageHeight : 200 }}>
+                      <div className="flex items-center justify-center h-[60vh]">
                         <Loader className="w-6 h-6 animate-spin text-gray-400" />
                       </div>
                     }
@@ -356,8 +350,10 @@ export function HeroSection() {
             )}
           </div>
 
-          {numPages > 1 && (
-            <div className="flex items-center justify-center gap-4 bg-[#fdfaf5] border-2 border-black rounded-lg px-4 py-2.5">
+          {/* Controls Bar: Pagination & Zoom */}
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 bg-[#fdfaf5] border-2 border-black rounded-lg px-4 py-2.5">
+            {/* Pagination (visually hidden if 1 page to maintain flex layout) */}
+            <div className="flex items-center gap-4" style={{ visibility: numPages > 1 ? 'visible' : 'hidden' }}>
               <button
                 type="button"
                 onClick={() => setPageNumber(p => Math.max(1, p - 1))}
@@ -366,7 +362,7 @@ export function HeroSection() {
               >
                 <ChevronLeft className="w-4 h-4" strokeWidth={3} />
               </button>
-              <span className="font-mono text-sm font-bold">Page {pageNumber} / {numPages}</span>
+              <span className="font-mono text-sm font-bold">Page {pageNumber} / {Math.max(1, numPages)}</span>
               <button
                 type="button"
                 onClick={() => setPageNumber(p => Math.min(numPages, p + 1))}
@@ -376,7 +372,28 @@ export function HeroSection() {
                 <ChevronRight className="w-4 h-4" strokeWidth={3} />
               </button>
             </div>
-          )}
+
+            {/* Zoom Controls */}
+            <div className="flex items-center gap-4">
+              <button
+                type="button"
+                onClick={() => setPdfScale(s => Math.max(0.5, s - 0.25))}
+                className="p-1.5 border-2 border-black rounded bg-white hover:bg-black hover:text-white transition-colors"
+                title="Zoom Out"
+              >
+                <ZoomOut className="w-4 h-4" strokeWidth={3} />
+              </button>
+              <span className="font-mono text-sm font-bold min-w-[4ch] text-center">{Math.round(pdfScale * 100)}%</span>
+              <button
+                type="button"
+                onClick={() => setPdfScale(s => Math.min(3, s + 0.25))}
+                className="p-1.5 border-2 border-black rounded bg-white hover:bg-black hover:text-white transition-colors"
+                title="Zoom In"
+              >
+                <ZoomIn className="w-4 h-4" strokeWidth={3} />
+              </button>
+            </div>
+          </div>
 
           {/* Blob-based actions — prevents IDM interception */}
           <div className="flex flex-wrap gap-3">
