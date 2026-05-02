@@ -5,12 +5,12 @@ const techSkills = [
   "AWS", "GCP", "Python", "Go", "NodeJS", "React", "Docker", "Kubernetes", "SQL", "BigQuery"
 ];
 
-const pmSkills = [
-  "Product Strategy", "Roadmap Planning", "UX Research", "Agile", "Jira", "Figma", "Looker", "A/B Testing", "Stakeholder Alignment"
+const bdSkills = [
+  "B2B Enterprise Sales", "GTM Strategy", "ROI Analysis", "Strategic Partnerships", "Client Alignment", "Salesforce", "Market Expansion", "Deal Structuring", "Stakeholder Management"
 ];
 
 // Combine and duplicate for infinite marquee effect
-const allSkills = [...techSkills, ...pmSkills];
+const allSkills = [...techSkills, ...bdSkills];
 const duplicatedSkills = [...allSkills, ...allSkills, ...allSkills]; // triple to ensure it's wide enough
 
 export function TechStackSection() {
