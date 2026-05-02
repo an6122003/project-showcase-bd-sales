@@ -82,7 +82,7 @@ function servePdfs(): Plugin {
 }
 
 export default defineConfig({
-  base: '/project-showcase-bd-sales/',
+  base: '/',
   plugins: [servePdfs(), react(), tailwindcss()],
   resolve: {
     alias: {
