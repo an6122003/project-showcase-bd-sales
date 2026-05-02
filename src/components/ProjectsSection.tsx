@@ -572,7 +572,27 @@ const projects: Project[] = [
 // ─── ProjectPane ─────────────────────────────────────────────────
 
 const ProjectPane = ({ project, isReversed }: { project: Project; isReversed: boolean }) => {
-  const [isPdfOpen, setIsPdfOpen] = useState(false);
+  const [isPdfOpen, setIsPdfOpen] = useState(() => {
+    if (typeof window !== 'undefined' && project.hasPdf) {
+      return window.location.hash === `#${project.projectSlug}-pdf`;
+    }
+    return false;
+  });
+
+  useEffect(() => {
+    const handleHashChange = () => {
+      if (project.hasPdf && window.location.hash === `#${project.projectSlug}-pdf`) {
+        setIsPdfOpen(true);
+      }
+    };
+    window.addEventListener('hashchange', handleHashChange);
+    // Check on mount
+    if (project.hasPdf && window.location.hash === `#${project.projectSlug}-pdf`) {
+      setIsPdfOpen(true);
+    }
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, [project.hasPdf, project.projectSlug]);
+
   const [slideIdx, setSlideIdx] = useState(0);
   const hasSlides = project.slides && project.slides.length > 0;
 
@@ -653,7 +673,10 @@ const ProjectPane = ({ project, isReversed }: { project: Project; isReversed: bo
               {project.hasPdf && (
                 <button
                   type="button"
-                  onClick={() => setIsPdfOpen(true)}
+                  onClick={() => {
+                    window.history.pushState(null, '', `#${project.projectSlug}-pdf`);
+                    setIsPdfOpen(true);
+                  }}
                   className="flex items-center gap-2 text-sm font-bold border-2 border-black px-5 py-2.5 rounded transition-all bg-white hover:bg-gray-100 shadow-[4px_4px_0_0_#000] hover:shadow-[2px_2px_0_0_#000] hover:translate-x-[2px] hover:translate-y-[2px] active:scale-95"
                 >
                   <FileText className="w-4 h-4" />
@@ -685,7 +708,12 @@ const ProjectPane = ({ project, isReversed }: { project: Project; isReversed: bo
       {project.hasPdf && (
         <PdfViewerModal
           isOpen={isPdfOpen}
-          onClose={() => setIsPdfOpen(false)}
+          onClose={() => {
+            if (window.location.hash === `#${project.projectSlug}-pdf`) {
+              window.history.pushState(null, '', window.location.pathname + window.location.search);
+            }
+            setIsPdfOpen(false);
+          }}
           projectSlug={project.projectSlug}
           title={project.title}
         />
