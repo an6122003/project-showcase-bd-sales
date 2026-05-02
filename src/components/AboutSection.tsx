@@ -34,24 +34,24 @@ export function AboutSection() {
                   <div className="w-10 h-10 bg-purple-100 rounded flex items-center justify-center mb-3 border-2 border-black">
                     <Compass className="w-5 h-5 text-purple-600" />
                   </div>
-                  <h4 className="font-bold mb-2">Product & Strategy</h4>
-                  <p className="text-sm text-gray-600 font-medium">Product Lifecycle Management, MVP Definition, UI/UX Prototyping, Strategy & Alignment.</p>
+                  <h4 className="font-bold mb-2">Sales & Solution Strategy</h4>
+                  <p className="text-sm text-gray-600 font-medium">B2B Solution Architecting, Proof of Concept (PoC) Scoping, Go-To-Market (GTM) Strategy, Enterprise Stakeholder Alignment.</p>
                 </div>
                 
                 <div className="bg-white p-5 border-2 border-black rounded-xl shadow-[4px_4px_0_0_#000] hover:shadow-[2px_2px_0_0_#000] hover:translate-x-[2px] hover:translate-y-[2px] transition-all">
                   <div className="w-10 h-10 bg-green-100 rounded flex items-center justify-center mb-3 border-2 border-black">
                     <Code className="w-5 h-5 text-green-600" />
                   </div>
-                  <h4 className="font-bold mb-2">Data & Analytics</h4>
-                  <p className="text-sm text-gray-600 font-medium">Data-Driven Decision Making, KPI Tracking, FinOps Cost Optimization, BigQuery, Looker.</p>
+                  <h4 className="font-bold mb-2">Business Value & Analytics</h4>
+                  <p className="text-sm text-gray-600 font-medium">Commercial ROI & Business Case Development, FinOps Cost Optimization, Data-Driven Decision Making, BigQuery, Looker.</p>
                 </div>
 
                 <div className="bg-white p-5 border-2 border-black rounded-xl shadow-[4px_4px_0_0_#000] hover:shadow-[2px_2px_0_0_#000] hover:translate-x-[2px] hover:translate-y-[2px] transition-all md:col-span-2">
                   <div className="w-10 h-10 bg-blue-100 rounded flex items-center justify-center mb-3 border-2 border-black">
                     <Server className="w-5 h-5 text-blue-600" />
                   </div>
-                  <h4 className="font-bold mb-2">Technical Engineering</h4>
-                  <p className="text-sm text-gray-600 font-medium">Go, Python, NodeJS, Java, AWS, GCP, Docker, Kubernetes, SQL.</p>
+                  <h4 className="font-bold mb-2">Technical Infrastructure</h4>
+                  <p className="text-sm text-gray-600 font-medium">AWS, GCP, Docker, Kubernetes, Python, Go, NodeJS, Java, SQL.</p>
                 </div>
               </div>
             </div>
