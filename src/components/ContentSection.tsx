@@ -133,7 +133,7 @@ export function ContentSection() {
             </span>
           </h2>
           
-          <p className="text-brand-subtext max-w-2xl text-lg">Most of my time is spent as an engineer and PM building products that scale. But I've always been obsessed with the story behind the tech. I use these platforms to share my experiences and deep dive into everything from AI updates to hardware. This is basically my personal log of what I'm learning and building.</p>
+          <p className="text-brand-subtext max-w-2xl text-lg">Most of my time is spent at the intersection of engineering and revenue, helping enterprises scale their infrastructure. But I have always been obsessed with the story behind the code. I use these platforms to share my experiences, translating complex technical concepts into clear insights, and diving into everything from AI updates to market strategy. This is basically my personal log of what I am learning, building, and bringing to market.</p>
         </div>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pb-8">
