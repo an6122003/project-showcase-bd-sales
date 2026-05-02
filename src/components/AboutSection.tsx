@@ -17,10 +17,13 @@ export function AboutSection() {
                 About Me
               </h2>
               <p className="text-lg md:text-xl text-brand-text leading-relaxed font-medium mb-4">
-                Transitioning to Product Management as a data-driven Software Engineer with 2 years of experience.
+                Transitioning from Software Engineering into B2B Tech Sales and Business Development.
+              </p>
+              <p className="text-base text-gray-700 leading-relaxed mb-4">
+                I started my career in the technical trenches, building scalable AI and cloud infrastructure. But my true obsession has always been the end-user and the commercial outcome. Because I care deeply about solving real customer pain points, I went beyond just writing code. I built real, working enterprise products that solve critical business bottlenecks, and I engineered reward-winning business strategies for global brands.
               </p>
               <p className="text-base text-gray-700 leading-relaxed">
-                Passionate about bridging technical complexity with seamless user experiences to solve customer pain points and drive product growth. Recognized for award-winning business and marketing strategy, I excel at leveraging data to uncover user needs and define clear requirements. I bring a unique ability to align cross-functional teams and balance technical constraints with business goals to deliver high-impact solutions.
+                This user-centric mindset made me realize that the best technology only matters if the market understands its value. I am pivoting into Tech Sales because I want to be on the front lines. I bring a unique, hands-on ability to sit across from clients, immediately understand their technical constraints, and translate complex product capabilities into clear commercial ROI.
               </p>
             </div>
 

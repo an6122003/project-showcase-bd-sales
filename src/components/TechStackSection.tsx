@@ -25,7 +25,7 @@ export function TechStackSection() {
       <div className="relative flex whitespace-nowrap overflow-hidden w-full bg-brand-bg border-y-2 border-brand-border py-8">
         <div className="flex animate-marquee gap-4 items-center">
           {duplicatedSkills.map((skill, index) => (
-            <div 
+            <div
               key={index}
               className="px-6 py-3 bg-white text-black font-bold text-lg md:text-xl border-2 border-black rounded-lg shadow-[4px_4px_0_0_#666] select-none"
             >
